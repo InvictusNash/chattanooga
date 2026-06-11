@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Chattanooga Trip Guide · Invictus Nashville</title>
+<link rel="icon" href="INCS-Shield.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   INVICTUS NASHVILLE CHARTER SCHOOL — Colors & Type
+   Foundational design tokens. Import this file into any design.
+   <link rel="stylesheet" href="colors_and_type.css">
+   ========================================================================== */
+
+/* ----------  FONTS  ------------------------------------------------------ */
+/* Poppins — the single brand typeface. Geometric, rounded, friendly, bold.
+   Used everywhere: ALL-CAPS ExtraBold/Black for headlines, Regular for body. */
+
+
+
+
+
+
+
+
+
+
+/* Anton — the display headline face. Ultra-bold CONDENSED, single weight (400).
+   Reserved for big impactful ALL-CAPS moments: hero headlines, section titles,
+   stat numbers, and the color-band name labels seen across Invictus collateral. */
+
+
+:root {
+  /* ----------  BRAND COLORS  -------------------------------------------- */
+  /* The four-color flame palette, drawn from the phoenix-shield logo.      */
+  --inv-yellow:      #FFBA08;   /* Sun. Optimism, energy, highlights, stats */
+  --inv-orange:      #F03B1F;   /* Flame. Primary accent, CTAs, banners     */
+  --inv-blue:        #3F88C5;   /* Sky. Trust, calm, secondary banners      */
+  --inv-navy:        #032B43;   /* Night. Primary ink + dark surfaces       */
+
+  /* Tints & shades (oklch-derived, harmonious with the core four) */
+  --inv-yellow-600:  #E0A300;   /* yellow pressed / on-white text-safe-ish  */
+  --inv-orange-600:  #CC2D12;   /* orange hover/press                       */
+  --inv-orange-100:  #FDE1DB;   /* orange wash / soft fill                  */
+  --inv-blue-700:    #2E6699;   /* blue hover/press                         */
+  --inv-blue-100:    #E2EEF7;   /* blue wash / soft fill                    */
+  --inv-navy-800:    #06314c;   /* raised navy surface                      */
+  --inv-navy-700:    #0c3d5c;   /* navy hover                               */
+
+  /* Neutrals — warm-leaning greys that sit well against navy */
+  --inv-white:       #FFFFFF;
+  --inv-paper:       #F7F9FB;   /* page background, off-white               */
+  --inv-cloud:       #EDF1F5;   /* subtle panel / divider fill              */
+  --inv-mist:        #D7DEE6;   /* borders, hairlines                       */
+  --inv-slate:       #5C6B78;   /* muted body text on light                 */
+  --inv-ink:         #102A3A;   /* near-black body text (navy-tinted)       */
+
+  /* ----------  SEMANTIC COLOR ROLES  ------------------------------------ */
+  --bg:              var(--inv-paper);
+  --surface:         var(--inv-white);
+  --surface-2:       var(--inv-cloud);
+  --fg1:             var(--inv-ink);     /* primary text                    */
+  --fg2:             var(--inv-slate);   /* secondary / supporting text     */
+  --fg-inverse:      var(--inv-white);   /* text on navy/orange/blue        */
+  --border:          var(--inv-mist);
+  --accent:          var(--inv-orange);  /* default interactive accent      */
+  --accent-ink:      var(--inv-navy);    /* headline ink                    */
+  --link:            var(--inv-blue-700);
+  --focus-ring:      var(--inv-blue);
+
+  /* States (use sparingly — education context skews positive) */
+  --success:         #1F8A5B;
+  --warning:         var(--inv-yellow);
+  --danger:          var(--inv-orange-600);
+
+  /* ----------  TYPE TOKENS  --------------------------------------------- */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Display = Anton (condensed). Falls back to heavy Poppins if Anton is unavailable. */
+  --font-display: "Anton", "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  /* Font weights */
+  --w-light:300;     /* @kind font */
+  --w-regular:400;   /* @kind font */
+  --w-medium:500;    /* @kind font */
+  --w-semibold:600;  /* @kind font */
+  --w-bold:700;      /* @kind font */
+  --w-extrabold:800; /* @kind font */
+  --w-black:900;     /* @kind font */
+
+  /* Modular type scale (1.25 major-third), rem-based @16px root */
+  --text-xs:   0.75rem;   /* 12px  fine print, eyebrows            */
+  --text-sm:   0.875rem;  /* 14px  captions, labels                */
+  --text-base: 1rem;      /* 16px  body                            */
+  --text-lg:   1.125rem;  /* 18px  lead body                       */
+  --text-xl:   1.375rem;  /* 22px  small headings                  */
+  --text-2xl:  1.75rem;   /* 28px  h3                              */
+  --text-3xl:  2.25rem;   /* 36px  h2                              */
+  --text-4xl:  3rem;      /* 48px  h1                              */
+  --text-5xl:  4rem;      /* 64px  display                         */
+  --text-6xl:  5.5rem;    /* 88px  hero display                    */
+
+  --leading-tight:1.05; --leading-snug:1.2; --leading-normal:1.55; --leading-relaxed:1.7;
+  --tracking-tight:-0.02em; --tracking-normal:0; --tracking-wide:0.06em; --tracking-caps:0.04em;
+
+  /* ----------  RADIUS / SHADOW / SPACE  --------------------------------- */
+  --r-sm:6px; --r-md:10px; --r-lg:16px; --r-xl:24px; --r-pill:999px;
+  --shadow-sm: 0 1px 2px rgba(3,43,67,.08), 0 1px 1px rgba(3,43,67,.04);
+  --shadow-md: 0 4px 12px rgba(3,43,67,.10), 0 2px 4px rgba(3,43,67,.06);
+  --shadow-lg: 0 12px 32px rgba(3,43,67,.14), 0 4px 8px rgba(3,43,67,.06);
+  --shadow-navy: 0 16px 40px rgba(3,43,67,.30);
+
+  /* 8pt spacing scale */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+  --space-6:32px; --space-7:48px; --space-8:64px; --space-9:96px; --space-10:128px;
+
+  /* Signature gradient pulled from the phoenix flame (yellow → orange) */
+  --grad-flame: linear-gradient(135deg, var(--inv-yellow) 0%, var(--inv-orange) 100%);
+  --grad-flame-vert: linear-gradient(180deg, var(--inv-yellow) 0%, var(--inv-orange) 100%);
+}
+
+/* ==========================================================================
+   SEMANTIC ELEMENT STYLES
+   Drop-in defaults. Scope with .inv-prose or use the utility classes.
+   ========================================================================== */
+.inv-root, .inv-prose {
+  font-family: var(--font-sans);
+  color: var(--fg1);
+  font-weight: var(--w-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display + headings.
+   Display, H1, H2 + stat numbers are set in ANTON (condensed, weight 400, ALL CAPS).
+   H3/H4 stay in Poppins for a softer sub-head voice. */
+.inv-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 6vw, var(--text-6xl));
+  line-height: 0.98;
+  letter-spacing: var(--tracking-normal);
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  text-wrap: balance;
+}
+.inv-h1 { font-family:var(--font-display); font-weight:400; font-size:var(--text-4xl); line-height:1.0;
+  letter-spacing:var(--tracking-normal); text-transform:uppercase; color:var(--accent-ink); text-wrap:balance; }
+.inv-h2 { font-family:var(--font-display); font-weight:400; font-size:var(--text-3xl); line-height:1.05;
+  letter-spacing:var(--tracking-normal); text-transform:uppercase; color:var(--accent-ink); text-wrap:balance; }
+.inv-h3 { font-weight:var(--w-bold); font-size:var(--text-2xl); line-height:var(--leading-snug);
+  color:var(--accent-ink); }
+.inv-h4 { font-weight:var(--w-semibold); font-size:var(--text-xl); line-height:var(--leading-snug);
+  color:var(--accent-ink); }
+
+/* Eyebrow / kicker — caps, tracked, orange or blue */
+.inv-eyebrow { font-weight:var(--w-bold); font-size:var(--text-sm); text-transform:uppercase;
+  letter-spacing:var(--tracking-wide); color:var(--accent); }
+
+/* Body */
+.inv-lead { font-size:var(--text-lg); line-height:var(--leading-relaxed); color:var(--fg1); }
+.inv-body { font-size:var(--text-base); line-height:var(--leading-normal); color:var(--fg1); }
+.inv-small { font-size:var(--text-sm); color:var(--fg2); }
+.inv-caption { font-size:var(--text-xs); color:var(--fg2); text-transform:uppercase;
+  letter-spacing:var(--tracking-caps); font-weight:var(--w-semibold); }
+
+/* Big stat number — Anton, yellow on navy, a brand signature */
+.inv-stat { font-family:var(--font-display); font-weight:400;
+  font-size:var(--text-5xl); line-height:1; color:var(--inv-yellow); letter-spacing:var(--tracking-normal); }
+
+a.inv-link { color:var(--link); text-decoration:none; font-weight:var(--w-semibold);
+  border-bottom:2px solid transparent; transition:border-color .15s ease; }
+a.inv-link:hover { border-color:var(--link); }
+
+/* ==========================================================================
+   INVICTUS NASHVILLE CHARTER SCHOOL — Design System entry point
+   --------------------------------------------------------------------------
+   Single import surface for consumers. Link THIS file to get the full token
+   set, type system, fonts, plus the opt-in document and slide modules.
+
+     <link rel="stylesheet" href="styles.css">
+
+   You can still import a single file if you only need part of the system:
+     <link rel="stylesheet" href="colors_and_type.css">   (tokens + type only)
+   ========================================================================== */
+
+/* 1. Foundation — colors, fonts, radius, shadow, spacing tokens + the
+      semantic .inv-* element classes. Applies globally. */
+@import "colors_and_type.css";
+
+/* 2. Document module — paginated "sheet" layout, chapter bands, callouts,
+      info-card grids, numbered steps, contact + critical boxes, print rules.
+      Visual styles are scoped to .hb (put class="hb" on the document body),
+      so importing this does NOT restyle ordinary pages. Use for handbooks,
+      manuals, policy guides, board reports. */
+@import "handbook/handbook.css";
+
+/* 3. Slide module — 1280×720 slide frames and helpers. All class-scoped
+      (.slide); importing it does not affect ordinary pages. */
+@import "slides/slide.css";
+
+</style>
+<style>
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--inv-cloud);
+    font-family: var(--font-sans);
+    color: var(--inv-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  #root { min-height: 100vh; }
+  .app { min-height: 100vh; display: flex; flex-direction: column; }
+
+  /* ----- Switcher bar ----- */
+  .switcher {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.82);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--inv-mist);
+  }
+  .switcher-inner {
+    max-width: 760px; margin: 0 auto; padding: 12px 18px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .switcher-brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
+  .switcher-shield { width: 26px; height: 26px; flex-shrink: 0; }
+  .switcher-title {
+    font-size: 13px; font-weight: 700; color: var(--inv-navy);
+    letter-spacing: .01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .seg {
+    display: inline-flex; background: var(--inv-cloud); border-radius: 999px;
+    padding: 3px; gap: 2px; flex-shrink: 0;
+  }
+  .seg-btn {
+    appearance: none; border: none; cursor: pointer; font-family: inherit;
+    font-size: 13px; font-weight: 700; color: var(--inv-slate);
+    padding: 7px 16px; border-radius: 999px; background: transparent;
+    transition: color .15s, background .15s, box-shadow .15s;
+  }
+  .seg-btn:hover { color: var(--inv-navy); }
+  .seg-btn.is-active {
+    background: #fff; color: var(--inv-navy);
+    box-shadow: 0 1px 3px rgba(3,43,67,.16);
+  }
+
+  .dir-caption {
+    text-align: center; font-size: 12.5px; color: var(--inv-slate);
+    padding: 12px 20px 2px; max-width: 460px; margin: 0 auto;
+  }
+
+  /* ----- Phone column ----- */
+  .stage { flex: 1; padding: 16px 16px 40px; display: flex; justify-content: center; }
+  .phone {
+    width: 100%; max-width: 430px;
+    background: #fff; border-radius: 30px; overflow: hidden;
+    box-shadow: 0 24px 60px rgba(3,43,67,.22), 0 0 0 1px rgba(3,43,67,.06);
+    animation: fade .35s ease both;
+  }
+  @keyframes fade { from { transform: translateY(8px); } to { transform: none; } }
+  @keyframes personIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  /* On real phones: full-bleed, no frame */
+  @media (max-width: 520px) {
+    body { background: #fff; }
+    .switcher-title { display: none; }
+    .switcher-inner { justify-content: center; }
+    .switcher-brand { display: none; }
+    .stage { padding: 0; }
+    .phone { max-width: none; border-radius: 0; box-shadow: none; }
+    .dir-caption { padding: 12px 20px 0; }
+  }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+/* Chattanooga Travel Guide — trip data extracted from the staff memo.
+   Plain JS, attaches to window.TRIP so every Babel script can read it. */
+(function () {
+  const maps = (q) =>
+    "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+
+  window.TRIP = {
+    meta: {
+      eyebrow: "Staff Professional Learning",
+      title: "Montessori Training in Chattanooga",
+      subtitle: "Montessori Training · June 24–25, 2026",
+      blurb:
+        "Everything you need for our two days of Montessori training — travel, lodging, meals, and what to pack. Pull this up anytime on the road.",
+    },
+
+    // Departure: 3:30 PM Central, Tue June 23, 2026.
+    countdownTargetISO: "2026-06-23T15:30:00-05:00",
+    countdownLabel: "Until we roll out from Nashville",
+
+    training: {
+      name: "Montessori Training",
+      audience:
+        "For assistant teachers and instructional staff not currently enrolled in a full Montessori certification program.",
+      venue: "MEHP Montessori Elementary at Highland Park",
+      city: "Chattanooga, TN",
+      dates: "June 24–25, 2026",
+      hours: "8:00 AM – 4:00 PM each day",
+      arriveBy: "We need to be there on time and ready to go — plan to arrive around 7:45 AM so we can start at 8:00 AM sharp.",
+      mapUrl: maps("MEHP Montessori Elementary at Highland Park, Chattanooga, TN"),
+      websiteUrl: "https://www.mehp.org/",
+      photo: "https://wehco.media.clients.ellingtoncms.com/imports/adg/img/2026/01/11/103870204_Montessori-Elementary-006.jpg",
+      pointOfContactNote:
+        "A separate email will connect you with the MEHP principal, our on-site point of contact during the training.",
+    },
+
+    // Day-by-day itinerary.
+    days: [
+      {
+        key: "tue",
+        dow: "Tuesday",
+        date: "June 23",
+        num: "23",
+        tag: "Departure",
+        accent: "blue",
+        items: [
+          {
+            time: "3:30 PM",
+            title: "Meet at Invictus Nashville",
+            detail:
+              "Arrive at 2526 Lebanon Pike ready to load vehicles with your assigned carpool group.",
+          },
+          {
+            time: "Shortly after",
+            title: "Depart for Chattanooga",
+            detail: "We load up and hit the road together — about a 2-hour drive.",
+          },
+          {
+            time: "Evening",
+            title: "Arrive & settle into your house",
+            detail: "Find your room and unwind — we'll post room assignments in this guide.",
+          },
+          {
+            time: "Dinner",
+            title: "Pizza night — provided",
+            detail: "Keep it casual — we're grabbing pizza once we get settled. Nothing fancy tonight (save room for Wednesday).",
+            covered: true,
+          },
+        ],
+      },
+      {
+        key: "wed",
+        dow: "Wednesday",
+        date: "June 24",
+        num: "24",
+        tag: "Training · Day 1",
+        accent: "orange",
+        items: [
+          {
+            time: "7:50 AM",
+            title: "Arrive at MEHP Montessori",
+            detail: "Doors open early so we can begin promptly at 8:00 AM.",
+          },
+          {
+            time: "8:00 AM – 4:00 PM",
+            title: "Montessori Training — Day 1",
+            detail: "Training with our facilitators.",
+          },
+          {
+            time: "6:15 PM",
+            title: "Team dinner — provided",
+            detail:
+              "Dinner at Feed Table & Tavern. The venue rolls into bingo at 7:00 — stay and play for a bit, or head back to the Airbnbs whenever you're ready.",
+            covered: true,
+            link: { url: "https://www.feedtableandtavern.com/dinner", label: "View menu · Feed Table & Tavern" },
+            logo: "https://images.squarespace-cdn.com/content/v1/5a8ecc99a8b2b0812b54bacf/271ad7b6-6204-412f-802b-aaf14786ae8d/FEED_TAVERN_TABLE_logo.png?format=750w",
+          },
+        ],
+      },
+      {
+        key: "thu",
+        dow: "Thursday",
+        date: "June 25",
+        num: "25",
+        tag: "Training · Day 2 + Return",
+        accent: "yellow",
+        items: [
+          {
+            time: "Before you leave",
+            title: "Pack up & load your vehicle",
+            detail:
+              "Check out of the house this morning and put your bags in your vehicle. We're driving straight from training to Nashville — we won't be coming back to the house tonight.",
+          },
+          {
+            time: "7:50 AM",
+            title: "Arrive at MEHP Montessori",
+            detail: "Second and final morning — same early arrival.",
+          },
+          {
+            time: "8:00 AM – 4:00 PM",
+            title: "Montessori Training — Day 2",
+            detail: "Wrap up the training.",
+          },
+          {
+            time: "After 4:00 PM",
+            title: "Depart straight for Nashville",
+            detail: "We head home directly from MEHP — we will not be returning to the house, so plan accordingly.",
+          },
+        ],
+      },
+    ],
+
+    timeZoneTip:
+      "Chattanooga runs on Eastern Time — one hour ahead of Nashville. Set your clock forward when you arrive.",
+
+    houses: [
+      {
+        n: "1",
+        name: "Luxury Retreat in Red Bank",
+        addr1: "3416 Dayton Boulevard",
+        addr2: "Chattanooga, TN 37415",
+        area: "Red Bank",
+        mapUrl: maps("3416 Dayton Boulevard, Chattanooga, TN 37415"),
+        airbnbUrl: "https://www.airbnb.com/rooms/716740570771497923",
+        driveTime: "About a 20-minute drive to MEHP — buffer that into your morning.",
+        guests: ["Robert Tate", "Jared Tuitel", "Audrey Richter", "Mary Berger"],
+        photo: "house1.png",
+      },
+      {
+        n: "2",
+        name: "Chattanooga Modern Luxury Home",
+        addr1: "542 Alexander Drive",
+        addr2: "Chattanooga, TN 37415",
+        area: "Red Bank",
+        mapUrl: maps("542 Alexander Drive, Chattanooga, TN 37415"),
+        airbnbUrl: "https://www.airbnb.com/rooms/567932695107453886",
+        driveTime: "About a 20-minute drive to MEHP — buffer that into your morning.",
+        guests: ["Damoniece Lowe", "Chantel Bell", "Jesse Lackey", "Melina DeGolyer"],
+        photo: "house2.png",
+      },
+      {
+        n: "3",
+        name: "Delmont Home with Rooftop Deck",
+        addr1: "312 Delmont Street",
+        addr2: "Chattanooga, TN 37405",
+        area: "North Chattanooga",
+        mapUrl: maps("312 Delmont Street, Chattanooga, TN 37405"),
+        airbnbUrl: "https://www.airbnb.com/rooms/32035691",
+        driveTime: "About a 15-minute drive to MEHP — buffer that into your morning.",
+        guests: ["Julie Tucker", "Pressley Poteete", "Jaania Raj", "Clare Hankins"],
+        photo: "house3.png",
+      },
+    ],
+    housesNote: "Room assignments are listed above. Car assignments will be added to this guide — we'll send a notification when they're posted, so check back here rather than waiting for a separate email.",
+
+    people: {
+      "Robert Tate": { role: "Assistant Guide · Lower El", status: "Returning" },
+      "Jared Tuitel": { role: "Assistant Guide · Lower El", status: "New" },
+      "Audrey Richter": { role: "Assistant Guide · Lower El", status: "New" },
+      "Mary Berger": { role: "Assistant Guide · Lower El", status: "New" },
+      "Damoniece Lowe": { role: "Assistant Head of Schools · Primary", status: "Returning" },
+      "Chantel Bell": { role: "Paraprofessional · Lower El", status: "Returning" },
+      "Jesse Lackey": { role: "Elective Guide · PE", status: "New" },
+      "Melina DeGolyer": { role: "Assistant Guide · Lower El", status: "New" },
+      "Julie Tucker": { role: "Elective Guide · Art", status: "Returning" },
+      "Pressley Poteete": { role: "Paraprofessional · Primary", status: "New" },
+      "Jaania Raj": { role: "Assistant Guide · Primary", status: "New" },
+      "Clare Hankins": { role: "Special Education Guide", status: "New" },
+    },
+
+    transportation: {
+      summary:
+        "We'll travel together from Nashville to Chattanooga in 3–4 vehicles.",
+      meetPlace: "Invictus Nashville Charter School",
+      meetAddr: "2526 Lebanon Pike, Nashville, TN 37214",
+      meetTime: "3:30 PM · Tuesday, June 23",
+      meetMapUrl: maps("2526 Lebanon Pike, Nashville, TN 37214"),
+      points: [
+        "We'll take 3–4 cars for the trip.",
+        "Car assignments and drivers will be added to this guide — we'll send a notification when they're posted.",
+      ],
+      driverCall: "Interested in driving one of the carpools? Reach out to Adam directly.",
+    },
+
+    stipend: {
+      amount: "$120",
+      label: "Travel stipend",
+      note: "Per participant — added to your paycheck or direct deposited, and not taxed.",
+      providedTitle: "Invictus provides",
+      provided: ["Pizza on arrival — Tuesday, June 23", "Team dinner — Wednesday, June 24"],
+      coverYourself:
+        "All other meals and incidental expenses are covered using your travel stipend.",
+      payTiming:
+        "Everyone will receive their payment by June 19, as long as your paperwork is completed by the end of this week.",
+    },
+
+    newStaff: {
+      title: "New staff members",
+      body:
+        "If you're an incoming staff member, go ahead and complete your onboarding paperwork early using the form below.",
+      why: "You're not officially employed until July, but completing this now lets us get your travel stipend into your account and gets your onboarding started — so you're good to go on day one.",
+      formUrl: "https://form.jotform.com/261268160099057",
+      cta: "Complete onboarding form",
+    },
+
+    bring: [
+      "Comfortable professional attire",
+      "Notebook and pen",
+      "Water bottle",
+      "Any materials requested by the training facilitators",
+    ],
+
+    contact: {
+      note:
+        "Questions about training, travel, or accommodations? Reach out to either of us anytime.",
+      people: [
+        {
+          name: "Adam Holdren",
+          role: "Trip coordinator",
+          email: "aholdren@invictus-nash.org",
+          phone: "615-507-8291",
+          phoneHref: "tel:+16155078291",
+        },
+        {
+          name: "Jonathan Salls",
+          role: "Trip coordinator",
+          email: "jsalls@invictus-nash.org",
+          phone: "731-693-1187",
+          phoneHref: "tel:+17316931187",
+        },
+      ],
+    },
+
+    closing:
+      "Thank you for representing Invictus Nashville during this professional learning opportunity. We're excited for you to deepen your understanding of Montessori philosophy and practice.",
+
+    funFact: {
+      eyebrow: "Fun fact",
+      lead: "Invictus is one of only three public charter Montessori schools in all of Tennessee — and you'll have visited two of them this week.",
+      schools: [
+        {
+          year: "2015",
+          logo: "https://images.squarespace-cdn.com/content/v1/5df79e6c1ad60635303a0651/1576782430056-L8I2ECYK5IYDXSQO9OS9/LibertasLgtransparent.png?format=1500w",
+          name: "Libertas School of Memphis",
+          city: "Memphis",
+          tag: "Where our leads train",
+          context: "Where our lead teachers do their Montessori certification training.",
+        },
+        {
+          year: "2021",
+          logo: "https://cdn.prod.website-files.com/62cc4259bad4827fbe76a438/62cc476ae2534d2d95ae4fd9_MEHP%20logo%20horizontal%20FC-p-500.png",
+          name: "Montessori Elementary at Highland Park",
+          city: "Chattanooga",
+          tag: "Where we train",
+          context: "Where we're training this week.",
+        },
+        {
+          year: "2025",
+          logo: "INCS-Logo-Horizontal.png",
+          name: "Invictus Nashville",
+          city: "Nashville",
+          tag: "That's us",
+          us: true,
+        },
+      ],
+    },
+  };
+})();
+
+/* Shared interactive atoms for the travel guide.
+   Exports to window.GuideKit. Relies on global React + design-system CSS vars. */
+(function () {
+  const { useState, useEffect, useRef } = React;
+
+  /* ----------  ICONS (Lucide-style, 2px stroke)  ---------- */
+  const PATHS = {
+    clock: ["M12 7v5l3 2", "circle:12,12,9"],
+    pin: ["M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z", "circle:12,10,3"],
+    car: [
+      "M5 17H3v-5l2-5h14l2 5v5h-2",
+      "M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0",
+      "M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0",
+      "M5 12h14",
+    ],
+    bed: ["M3 18V8m0 4h18m0 6V11a3 3 0 0 0-3-3H7", "M3 18h18"],
+    utensils: ["M4 3v7a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V3", "M6 3v18", "M16 3c-1.5 0-3 1.5-3 5s1.5 4 3 4v6"],
+    wallet: ["M3 8a2 2 0 0 1 2-2h14v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z", "M16 12h3", "M3 8V6a2 2 0 0 1 2-2h11"],
+    bag: ["M6 8h12l1 12H5L6 8Z", "M9 8a3 3 0 0 1 6 0"],
+    phone: ["M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"],
+    mail: ["M3 6h18v12H3Z", "M3 7l9 6 9-6"],
+    arrow: ["M5 12h14", "M13 6l6 6-6 6"],
+    check: ["M5 12l4 4 10-10"],
+    calendar: ["M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14H3Z", "M3 10h18", "M8 3v4", "M16 3v4"],
+    sun: ["circle:12,12,4", "M12 2v2", "M12 20v2", "M4 12H2", "M22 12h-2", "M5 5l1.5 1.5", "M17.5 17.5L19 19", "M19 5l-1.5 1.5", "M6.5 17.5L5 19"],
+    flame: ["M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-1.5.8-2.8 2-4 .3 1.2 1 2 2 2 0-2-1-4 1-7Z"],
+    "chevron-down": ["M6 9l6 6 6-6"],
+    "chevron-up": ["M6 15l6-6 6 6"],
+    user: ["M4 20c0-4 4-6 8-6s8 2 8 6", "circle:12,8,4"],
+  };
+
+  function Icon({ name, size = 20, color = "currentColor", stroke = 2, style }) {
+    const d = PATHS[name] || [];
+    return React.createElement(
+      "svg",
+      {
+        width: size, height: size, viewBox: "0 0 24 24", fill: "none",
+        stroke: color, strokeWidth: stroke, strokeLinecap: "round",
+        strokeLinejoin: "round", style, "aria-hidden": true,
+      },
+      d.map((seg, i) => {
+        if (seg.startsWith("circle:")) {
+          const [cx, cy, r] = seg.slice(7).split(",");
+          return React.createElement("circle", { key: i, cx, cy, r });
+        }
+        return React.createElement("path", { key: i, d: seg });
+      })
+    );
+  }
+
+  /* ----------  COUNTDOWN  ---------- */
+  function diff(target) {
+    const ms = Math.max(0, target - Date.now());
+    const d = Math.floor(ms / 86400000);
+    const h = Math.floor((ms % 86400000) / 3600000);
+    const m = Math.floor((ms % 3600000) / 60000);
+    const s = Math.floor((ms % 60000) / 1000);
+    return { d, h, m, s, done: ms === 0 };
+  }
+
+  function Countdown({ targetISO, label, variant = "navy" }) {
+    const target = useRef(new Date(targetISO).getTime()).current;
+    const [t, setT] = useState(() => diff(target));
+    useEffect(() => {
+      const id = setInterval(() => setT(diff(target)), 1000);
+      return () => clearInterval(id);
+    }, [target]);
+
+    const units = [
+      { v: t.d, l: "days" },
+      { v: t.h, l: "hrs" },
+      { v: t.m, l: "min" },
+      { v: t.s, l: "sec" },
+    ];
+
+    // Variant palettes
+    const cfg = {
+      navy: { bg: "var(--inv-navy)", num: "var(--inv-yellow)", lab: "rgba(255,255,255,.6)", cap: "rgba(255,255,255,.85)" },
+      flame: { bg: "var(--grad-flame)", num: "#fff", lab: "rgba(255,255,255,.85)", cap: "#fff" },
+      blue: { bg: "var(--inv-blue-100)", num: "var(--inv-navy)", lab: "var(--inv-slate)", cap: "var(--inv-blue-700)" },
+    }[variant];
+
+    if (t.done) {
+      return React.createElement(
+        "div",
+        { style: { background: cfg.bg, borderRadius: 18, padding: "18px 20px", textAlign: "center" } },
+        React.createElement("div", { style: { color: cfg.cap, fontWeight: 700, fontSize: 15 } }, "Safe travels — see you on the road! ✦".replace(" ✦", ""))
+      );
+    }
+
+    return React.createElement(
+      "div",
+      { style: { background: cfg.bg, borderRadius: 18, padding: "16px 16px 18px", textAlign: "center" } },
+      React.createElement(
+        "div",
+        {
+          style: {
+            color: cfg.cap, fontWeight: 700, fontSize: 11, letterSpacing: ".08em",
+            textTransform: "uppercase", marginBottom: 12,
+          },
+        },
+        label
+      ),
+      React.createElement(
+        "div",
+        { style: { display: "flex", justifyContent: "center", gap: 6 } },
+        units.map((u, i) =>
+          React.createElement(
+            "div",
+            { key: u.l, style: { flex: 1, maxWidth: 76 } },
+            React.createElement(
+              "div",
+              {
+                style: {
+                  fontFamily: "var(--font-display)", fontSize: 38, lineHeight: 1,
+                  color: cfg.num, fontWeight: 400,
+                },
+              },
+              String(u.v).padStart(2, "0")
+            ),
+            React.createElement(
+              "div",
+              {
+                style: {
+                  color: cfg.lab, fontSize: 10, fontWeight: 600, letterSpacing: ".1em",
+                  textTransform: "uppercase", marginTop: 4,
+                },
+              },
+              u.l
+            )
+          )
+        )
+      )
+    );
+  }
+
+  /* ----------  MAP LINK (address that opens Google Maps)  ---------- */
+  function MapLink({ url, accent = "var(--inv-blue-700)", children, compact }) {
+    const [h, setH] = useState(false);
+    return React.createElement(
+      "a",
+      {
+        href: url, target: "_blank", rel: "noopener noreferrer",
+        onMouseEnter: () => setH(true), onMouseLeave: () => setH(false),
+        style: {
+          display: "inline-flex", alignItems: "center", gap: 6,
+          color: accent, fontWeight: 600, fontSize: compact ? 13 : 14,
+          textDecoration: "none", borderBottom: "2px solid",
+          borderColor: h ? accent : "transparent", transition: "border-color .15s",
+          paddingBottom: 1,
+        },
+      },
+      React.createElement(Icon, { name: "pin", size: compact ? 15 : 16, color: accent, stroke: 2.2 }),
+      children
+    );
+  }
+
+  /* ----------  PACKING CHECKLIST (persists to localStorage)  ---------- */
+  function Checklist({ items, accent = "var(--inv-orange)", storeKey }) {
+    const [done, setDone] = useState(() => {
+      try {
+        return JSON.parse(localStorage.getItem(storeKey) || "{}");
+      } catch (e) {
+        return {};
+      }
+    });
+    const toggle = (i) => {
+      setDone((prev) => {
+        const next = { ...prev, [i]: !prev[i] };
+        try {
+          localStorage.setItem(storeKey, JSON.stringify(next));
+        } catch (e) {}
+        return next;
+      });
+    };
+    return React.createElement(
+      "div",
+      { style: { display: "flex", flexDirection: "column", gap: 8 } },
+      items.map((item, i) => {
+        const on = !!done[i];
+        return React.createElement(
+          "button",
+          {
+            key: i, onClick: () => toggle(i), type: "button",
+            style: {
+              display: "flex", alignItems: "center", gap: 12, width: "100%",
+              padding: "13px 14px", borderRadius: 14, border: "none", cursor: "pointer",
+              background: on ? "var(--inv-cloud)" : "#fff",
+              boxShadow: on ? "none" : "inset 0 0 0 1.5px var(--inv-mist)",
+              textAlign: "left", font: "inherit", transition: "background .15s, box-shadow .15s",
+            },
+          },
+          React.createElement(
+            "span",
+            {
+              style: {
+                width: 24, height: 24, borderRadius: 8, flexShrink: 0,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                background: on ? accent : "transparent",
+                boxShadow: on ? "none" : "inset 0 0 0 2px var(--inv-mist)",
+                transition: "background .15s",
+              },
+            },
+            on ? React.createElement(Icon, { name: "check", size: 15, color: "#fff", stroke: 3 }) : null
+          ),
+          React.createElement(
+            "span",
+            {
+              style: {
+                fontSize: 15, fontWeight: 500, lineHeight: 1.3,
+                color: on ? "var(--inv-slate)" : "var(--inv-ink)",
+                textDecoration: on ? "line-through" : "none",
+                textDecorationColor: "var(--inv-mist)",
+              },
+            },
+            item
+          )
+        );
+      })
+    );
+  }
+
+  window.GuideKit = { Icon, Countdown, MapLink, Checklist };
+})();
+
+/* TravelGuide — one themeable mobile guide rendered in three directions:
+   "banded" (classic Invictus), "flame" (bold/graphic), "itinerary" (calm spine).
+   Exports window.TravelGuide. Needs window.TRIP + window.GuideKit. */
+(function () {
+  const h = React.createElement;
+  const F = React.Fragment;
+  const { Icon, Countdown, MapLink, Checklist } = window.GuideKit;
+  const T = window.TRIP;
+
+  const ACCENTS = {
+    blue: { solid: "var(--inv-blue)", soft: "var(--inv-blue-100)", ink: "var(--inv-blue-700)" },
+    orange: { solid: "var(--inv-orange)", soft: "var(--inv-orange-100)", ink: "var(--inv-orange-600)" },
+    yellow: { solid: "var(--inv-yellow)", soft: "#FFF1CC", ink: "var(--inv-yellow-600)" },
+    navy: { solid: "var(--inv-navy)", soft: "var(--inv-cloud)", ink: "var(--inv-navy)" },
+    purple: { solid: "#6E4BC4", soft: "#EEE7FA", ink: "#6E4BC4" },
+  };
+
+  /* =================  THEME CONFIG  ================= */
+  const THEMES = {
+    banded: {
+      accent: "orange",
+      bg: "#fff",
+      header: "band",
+      timeline: "band",
+      countdown: "navy",
+      mapInk: "var(--inv-blue-700)",
+      ctaVariant: "orange",
+    },
+    flame: {
+      accent: "orange",
+      bg: "var(--inv-paper)",
+      header: "flame",
+      timeline: "bold",
+      countdown: "flame",
+      mapInk: "var(--inv-orange-600)",
+      ctaVariant: "navy",
+    },
+    itinerary: {
+      accent: "blue",
+      bg: "#fff",
+      header: "minimal",
+      timeline: "spine",
+      countdown: "blue",
+      mapInk: "var(--inv-blue-700)",
+      ctaVariant: "blue",
+    },
+  };
+
+  const ctaBg = { orange: "var(--inv-orange)", navy: "var(--inv-navy)", blue: "var(--inv-blue)" };
+
+  /* =================  SMALL HELPERS  ================= */
+  function CTA({ href, children, variant = "orange", icon = "arrow" }) {
+    const [hov, setHov] = React.useState(false);
+    return h(
+      "a",
+      {
+        href, target: "_blank", rel: "noopener noreferrer",
+        onMouseEnter: () => setHov(true), onMouseLeave: () => setHov(false),
+        style: {
+          display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+          background: ctaBg[variant], color: "#fff", fontWeight: 700, fontSize: 15,
+          padding: "14px 22px", borderRadius: 999, textDecoration: "none",
+          boxShadow: hov ? "0 8px 20px rgba(3,43,67,.22)" : "0 2px 8px rgba(3,43,67,.12)",
+          transform: hov ? "translateY(-1px)" : "none", transition: "all .15s",
+        },
+      },
+      children,
+      h(Icon, { name: icon, size: 18, color: "#fff", stroke: 2.4 })
+    );
+  }
+
+  function eyebrow(text, color) {
+    return h(
+      "div",
+      {
+        style: {
+          fontWeight: 700, fontSize: 12, letterSpacing: ".1em", textTransform: "uppercase",
+          color, marginBottom: 8,
+        },
+      },
+      text
+    );
+  }
+
+  /* =================  SECTION HEADER  ================= */
+  function SectionHead({ theme, icon, label, n }) {
+    const a = ACCENTS[theme.accent];
+    if (theme.header === "band") {
+      return h(
+        "div",
+        {
+          style: {
+            display: "flex", alignItems: "center", gap: 10, background: "var(--inv-navy)",
+            color: "#fff", padding: "11px 16px", borderRadius: 12, marginBottom: 16,
+          },
+        },
+        h("span", {
+          style: {
+            width: 30, height: 30, borderRadius: 8, background: a.solid, display: "flex",
+            alignItems: "center", justifyContent: "center", flexShrink: 0,
+          },
+        }, h(Icon, { name: icon, size: 18, color: "#fff", stroke: 2.2 })),
+        h("span", {
+          style: {
+            fontFamily: "var(--font-display)", fontSize: 21, letterSpacing: ".01em",
+            textTransform: "uppercase", lineHeight: 1,
+          },
+        }, label)
+      );
+    }
+    if (theme.header === "flame") {
+      return h(
+        "div",
+        { style: { marginBottom: 16 } },
+        h("div", {
+          style: { display: "flex", alignItems: "baseline", gap: 10 },
+        },
+          h("span", {
+            style: {
+              fontFamily: "var(--font-display)", fontSize: 16, color: "var(--inv-orange)",
+              letterSpacing: ".02em",
+            },
+          }, n),
+          h("h2", {
+            style: {
+              fontFamily: "var(--font-display)", fontSize: 30, lineHeight: 1, margin: 0,
+              textTransform: "uppercase", color: "var(--inv-navy)",
+            },
+          }, label)
+        ),
+        h("div", {
+          style: { height: 5, width: 56, background: "var(--grad-flame)", borderRadius: 999, marginTop: 10 },
+        })
+      );
+    }
+    // minimal
+    return h(
+      "div",
+      { style: { marginBottom: 18 } },
+      h("div", {
+        style: { display: "flex", alignItems: "center", gap: 9, marginBottom: 8 },
+      },
+        h(Icon, { name: icon, size: 17, color: a.ink, stroke: 2.2 }),
+        h("span", {
+          style: {
+            fontWeight: 700, fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase",
+            color: a.ink,
+          },
+        }, label)
+      ),
+      h("div", { style: { height: 1, background: "var(--inv-mist)" } })
+    );
+  }
+
+  /* card shell */
+  function card(children, extra) {
+    return h(
+      "div",
+      {
+        style: {
+          background: "#fff", borderRadius: 16, padding: 18,
+          boxShadow: "inset 0 0 0 1.5px var(--inv-mist)", ...extra,
+        },
+      },
+      children
+    );
+  }
+
+  /* =================  HERO  ================= */
+  function Hero({ theme }) {
+    const m = T.meta;
+    if (theme.header === "band") {
+      // navy hero with dark logo
+      return h(
+        "div",
+        { style: { background: "var(--inv-navy)", padding: "62px 22px 26px", color: "#fff", position: "relative", overflow: "hidden" } },
+        h("img", {
+          src: "INCS-Shield.png", alt: "",
+          style: { position: "absolute", right: -34, top: 24, width: 180, opacity: 0.14 },
+        }),
+        h("img", {
+          src: "INCS-Logo-Horizontal-Dark.png", alt: "Invictus Nashville Charter School",
+          style: { height: 54, marginBottom: 24, position: "relative", display: "block", marginLeft: "auto", marginRight: "auto" },
+        }),
+        eyebrow(m.eyebrow, "var(--inv-yellow)"),
+        h("h1", {
+          style: {
+            fontFamily: "var(--font-display)", fontSize: 40, lineHeight: .98, margin: "0 0 10px",
+            textTransform: "uppercase", position: "relative",
+          },
+        }, m.title),
+        h("div", { style: { fontWeight: 600, fontSize: 15, color: "rgba(255,255,255,.82)" } }, m.subtitle)
+      );
+    }
+    if (theme.header === "flame") {
+      return h(
+        "div",
+        { style: { background: "var(--grad-flame-vert)", padding: "60px 22px 30px", position: "relative", overflow: "hidden" } },
+        h("img", {
+          src: "INCS-Shield.png", alt: "",
+          style: { position: "absolute", right: -50, bottom: -30, width: 230, opacity: 0.22 },
+        }),
+        h("img", {
+          src: "INCS-Logo-Horizontal.png", alt: "Invictus Nashville Charter School",
+          style: { height: 32, marginBottom: 26, position: "relative" },
+        }),
+        eyebrow(m.eyebrow, "var(--inv-navy)"),
+        h("h1", {
+          style: {
+            fontFamily: "var(--font-display)", fontSize: 52, lineHeight: .9, margin: "0 0 12px",
+            textTransform: "uppercase", color: "var(--inv-navy)", position: "relative",
+          },
+        }, m.title),
+        h("div", {
+          style: { fontWeight: 700, fontSize: 15, color: "var(--inv-navy)", opacity: .85, position: "relative" },
+        }, m.subtitle)
+      );
+    }
+    // itinerary — calm light hero
+    return h(
+      "div",
+      { style: { background: "#fff", padding: "60px 24px 8px" } },
+      h("img", {
+        src: "INCS-Logo-Horizontal.png", alt: "Invictus Nashville Charter School",
+        style: { height: 30, marginBottom: 28 },
+      }),
+      eyebrow(m.eyebrow, "var(--inv-blue-700)"),
+      h("h1", {
+        style: {
+          fontFamily: "var(--font-display)", fontSize: 42, lineHeight: .98, margin: "0 0 12px",
+          textTransform: "uppercase", color: "var(--inv-navy)",
+        },
+      }, m.title),
+      h("div", { style: { fontWeight: 600, fontSize: 15, color: "var(--inv-slate)" } }, m.subtitle)
+    );
+  }
+
+  /* =================  QUICK FACTS  ================= */
+  function QuickFacts({ theme }) {
+    const a = ACCENTS[theme.accent];
+    const rows = [
+      { icon: "calendar", k: "Dates", v: T.training.dates },
+      { icon: "clock", k: "Hours", v: T.training.hours },
+      { icon: "pin", k: "Venue", v: T.training.venue, link: T.training.mapUrl },
+      { icon: "pin", k: "School site", v: "mehp.org", link: T.training.websiteUrl },
+    ];
+    return card(
+      h(F, null,
+        T.training.photo
+          ? h("img", {
+              src: T.training.photo, alt: T.training.venue, loading: "lazy",
+              style: { width: "100%", height: 168, objectFit: "cover", borderRadius: 12, display: "block", marginBottom: 14 },
+            })
+          : null,
+        h("p", { style: { margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.55, color: "var(--inv-slate)" } }, T.meta.blurb),
+        h("div", { style: { display: "flex", flexDirection: "column", gap: 12 } },
+          rows.map((r, i) =>
+            h("div", { key: i, style: { display: "flex", gap: 12, alignItems: "flex-start" } },
+              h("span", {
+                style: {
+                  width: 34, height: 34, borderRadius: 10, background: a.soft, flexShrink: 0,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                },
+              }, h(Icon, { name: r.icon, size: 18, color: a.ink, stroke: 2.2 })),
+              h("div", null,
+                h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--inv-slate)" } }, r.k),
+                r.link
+                  ? h("div", { style: { marginTop: 2 } }, h(MapLink, { url: r.link, accent: theme.mapInk }, r.v))
+                  : h("div", { style: { fontSize: 15, fontWeight: 600, color: "var(--inv-ink)", marginTop: 1 } }, r.v)
+              )
+            )
+          )
+        ),
+        h("div", { style: { marginTop: 14, paddingTop: 14, borderTop: "1px solid var(--inv-mist)", fontSize: 13, lineHeight: 1.5, color: "var(--inv-slate)" } }, T.training.arriveBy)
+      )
+    );
+  }
+
+  /* =================  TIMELINE  ================= */
+  function DayItems({ items, accent }) {
+    const a = ACCENTS[accent];
+    return h("div", { style: { display: "flex", flexDirection: "column", gap: 14 } },
+      items.map((it, i) =>
+        h("div", { key: i, style: { display: "flex", gap: 12 } },
+          h("div", { style: { width: 92, flexShrink: 0 } },
+            h("div", {
+              style: {
+                fontSize: 12.5, fontWeight: 700, color: a.ink, lineHeight: 1.25,
+              },
+            }, it.time)
+          ),
+          h("div", { style: { flex: 1 } },
+            h("div", { style: { display: "flex", alignItems: "center", gap: 7, flexWrap: "wrap" } },
+              h("span", { style: { fontSize: 14.5, fontWeight: 700, color: "var(--inv-ink)" } }, it.title),
+              it.covered ? h("span", {
+                style: {
+                  fontSize: 10, fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase",
+                  color: "#fff", background: "var(--success)", padding: "2px 7px", borderRadius: 999,
+                },
+              }, "Covered") : null
+            ),
+            it.detail ? h("div", { style: { fontSize: 13, lineHeight: 1.45, color: "var(--inv-slate)", marginTop: 3 } }, it.detail) : null,
+            it.logo ? h("div", { style: { marginTop: 8 } }, h("img", { src: it.logo, alt: "Feed Table & Tavern", loading: "lazy", style: { height: 64, width: "auto", display: "block" } })) : null,
+            it.link ? h("div", { style: { marginTop: 6 } }, h(MapLink, { url: it.link.url, accent: a.ink, compact: true }, it.link.label)) : null
+          )
+        )
+      )
+    );
+  }
+
+  function TimelineCards({ theme }) {
+    const bold = theme.timeline === "bold";
+    return h("div", { style: { display: "flex", flexDirection: "column", gap: 16 } },
+      T.days.map((day) => {
+        const a = ACCENTS[day.accent];
+        return h("div", {
+          key: day.key,
+          style: {
+            background: "#fff", borderRadius: 16, overflow: "hidden",
+            boxShadow: "0 2px 10px rgba(3,43,67,.08), inset 0 0 0 1px var(--inv-mist)",
+          },
+        },
+          // day header
+          h("div", {
+            style: {
+              display: "flex", alignItems: "center", gap: 12,
+              background: bold ? a.solid : a.soft, padding: "13px 16px",
+            },
+          },
+            h("div", {
+              style: {
+                fontFamily: "var(--font-display)", fontSize: bold ? 34 : 26, lineHeight: .85,
+                color: bold ? "#fff" : a.ink, minWidth: bold ? 42 : 34,
+              },
+            }, day.num),
+            h("div", null,
+              h("div", {
+                style: {
+                  fontSize: 14, fontWeight: 800, color: bold ? "#fff" : "var(--inv-navy)",
+                  textTransform: "uppercase", letterSpacing: ".02em",
+                },
+              }, day.dow + " · " + day.date),
+              h("div", {
+                style: {
+                  fontSize: 11.5, fontWeight: 700, letterSpacing: ".04em", textTransform: "uppercase",
+                  color: bold ? "rgba(255,255,255,.85)" : a.ink,
+                },
+              }, day.tag)
+            )
+          ),
+          h("div", { style: { padding: "16px 16px 18px" } }, h(DayItems, { items: day.items, accent: day.accent }))
+        );
+      })
+    );
+  }
+
+  function TimelineSpine({ theme }) {
+    // calm vertical spine with day groupings
+    return h("div", { style: { position: "relative", paddingLeft: 4 } },
+      T.days.map((day, di) => {
+        const a = ACCENTS[day.accent];
+        return h("div", { key: day.key, style: { position: "relative", paddingLeft: 30, paddingBottom: di === T.days.length - 1 ? 0 : 26 } },
+          // vertical line
+          di === T.days.length - 1 ? null : h("div", {
+            style: { position: "absolute", left: 8, top: 22, bottom: -4, width: 2, background: "var(--inv-mist)" },
+          }),
+          // day node
+          h("div", {
+            style: {
+              position: "absolute", left: 0, top: 3, width: 18, height: 18, borderRadius: 999,
+              background: a.solid, boxShadow: "0 0 0 4px #fff",
+            },
+          }),
+          // day label
+          h("div", { style: { marginBottom: 12 } },
+            h("div", { style: { fontSize: 15, fontWeight: 800, color: "var(--inv-navy)" } }, day.dow + ", " + day.date),
+            h("div", { style: { fontSize: 11.5, fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", color: a.ink } }, day.tag)
+          ),
+          // items
+          h("div", { style: { display: "flex", flexDirection: "column", gap: 12 } },
+            day.items.map((it, i) =>
+              h("div", { key: i },
+                h("div", { style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" } },
+                  h("span", { style: { fontSize: 11.5, fontWeight: 800, letterSpacing: ".04em", color: a.ink, textTransform: "uppercase" } }, it.time),
+                  it.covered ? h("span", {
+                    style: { fontSize: 9.5, fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--success)" },
+                  }, "· Covered") : null
+                ),
+                h("div", { style: { fontSize: 14.5, fontWeight: 700, color: "var(--inv-ink)", marginTop: 1 } }, it.title),
+                it.detail ? h("div", { style: { fontSize: 13, lineHeight: 1.45, color: "var(--inv-slate)", marginTop: 2 } }, it.detail) : null
+              )
+            )
+          )
+        );
+      })
+    );
+  }
+
+  function Timeline({ theme }) {
+    return theme.timeline === "spine" ? h(TimelineSpine, { theme }) : h(TimelineCards, { theme });
+  }
+
+  /* =================  CALLOUT  ================= */
+  function Callout({ icon, children, tone = "blue" }) {
+    const a = ACCENTS[tone];
+    return h("div", {
+      style: {
+        display: "flex", gap: 11, background: a.soft, borderRadius: 14, padding: "13px 15px",
+      },
+    },
+      h(Icon, { name: icon, size: 19, color: a.ink, stroke: 2.2, style: { flexShrink: 0, marginTop: 1 } }),
+      h("div", { style: { fontSize: 13.5, lineHeight: 1.5, color: "var(--inv-ink)", fontWeight: 500 } }, children)
+    );
+  }
+
+  /* =================  PERSON AVATAR (auto-loads <slug>.png)  ================= */
+  function personSlug(name) {
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  function PersonAvatar({ name, info, badgeBg, badgeInk }) {
+    const [failed, setFailed] = React.useState(false);
+    const src = (info && info.photo) ? info.photo : ("" + personSlug(name) + ".png");
+    if (failed) {
+      return h("span", {
+        style: {
+          width: 42, height: 42, borderRadius: 999, flexShrink: 0,
+          background: badgeBg, color: badgeInk,
+          display: "flex", alignItems: "center", justifyContent: "center",
+        },
+      }, h(Icon, { name: "user", size: 22, color: badgeInk, stroke: 2 }));
+    }
+    return h("img", {
+      src: src, alt: name, loading: "lazy",
+      onError: () => setFailed(true),
+      style: {
+        width: 42, height: 42, borderRadius: 999, flexShrink: 0,
+        objectFit: "cover", display: "block",
+        boxShadow: "0 0 0 2px " + badgeBg,
+      },
+    });
+  }
+
+  /* =================  PERSON CARD (tap-to-reveal)  ================= */
+  function PersonCard({ name, info, accent, onClose }) {
+    const isReturning = (info.status || "").toLowerCase() === "returning";
+    const badgeBg = isReturning ? "var(--inv-blue-100)" : "#DCF3E5";
+    const badgeInk = isReturning ? "var(--inv-blue-700)" : "#1B7A47";
+    return h("div", {
+      style: {
+        marginTop: 10, display: "flex", gap: 12, alignItems: "center",
+        background: "#fff", border: "1px solid var(--inv-mist)",
+        borderRadius: 14, padding: "12px 14px",
+        boxShadow: "0 6px 18px rgba(3,43,67,.10)",
+        animation: "personIn .16s ease-out",
+      },
+    },
+      h(PersonAvatar, { name: name, info: info, badgeBg: badgeBg, badgeInk: badgeInk }),
+      h("div", { style: { flex: 1, minWidth: 0 } },
+        h("div", { style: { fontSize: 14.5, fontWeight: 800, color: badgeInk, lineHeight: 1.2 } }, name),
+        h("div", { style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginTop: 4 } },
+          h("span", { style: { fontSize: 12.5, fontWeight: 600, color: "var(--inv-slate)" } }, info.role),
+          h("span", {
+            style: {
+              fontSize: 9.5, fontWeight: 800, letterSpacing: ".05em", textTransform: "uppercase",
+              color: badgeInk, background: badgeBg, padding: "3px 7px", borderRadius: 999, whiteSpace: "nowrap",
+            },
+          }, info.status)
+        )
+      ),
+      h("button", {
+        type: "button", "aria-label": "Close", onClick: onClose,
+        style: {
+          flexShrink: 0, width: 26, height: 26, borderRadius: 999, border: "none", cursor: "pointer",
+          background: "var(--inv-cloud)", color: "var(--inv-slate)", fontSize: 15, lineHeight: 1,
+          display: "flex", alignItems: "center", justifyContent: "center",
+        },
+      }, "\u00D7")
+    );
+  }
+
+  /* =================  HOUSES  ================= */
+  function Houses({ theme }) {
+    const a = ACCENTS[theme.accent];
+    const [active, setActive] = React.useState(null);
+    return h(F, null,
+      h("div", { style: { display: "flex", flexDirection: "column", gap: 12 } },
+        T.houses.map((ho) =>
+          React.cloneElement(card(
+            h(F, null,
+              h("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 10 } },
+                h("span", {
+                  style: {
+                    fontFamily: "var(--font-display)", fontSize: 22, color: "#fff", background: "var(--inv-navy)",
+                    width: 38, height: 38, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                  },
+                }, ho.n),
+                h("div", { style: { marginRight: "auto" } },
+                  h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".07em", textTransform: "uppercase", color: a.ink } }, "House " + ho.n + " · " + ho.area),
+                  h("div", { style: { fontSize: 15, fontWeight: 700, color: "var(--inv-ink)", lineHeight: 1.25, marginTop: 1 } }, ho.name)
+                ),
+                ho.photo
+                  ? h("a", {
+                      href: ho.airbnbUrl, target: "_blank", rel: "noopener noreferrer",
+                      title: "View " + ho.name + " on Airbnb",
+                      style: {
+                        display: "block", width: 62, height: 62, borderRadius: 999, flexShrink: 0,
+                        overflow: "hidden", boxShadow: "0 0 0 2px " + a.soft + ", 0 4px 10px rgba(3,43,67,.15)",
+                      },
+                    },
+                      h("img", { src: ho.photo, alt: ho.name, loading: "lazy", style: { width: "100%", height: "100%", objectFit: "cover", display: "block" } })
+                    )
+                  : null
+              ),
+              h("div", { style: { fontSize: 13.5, color: "var(--inv-slate)", lineHeight: 1.4, marginBottom: 10 } }, ho.addr1 + " · " + ho.addr2),
+              ho.guests && ho.guests.length
+                ? h("div", { style: { marginBottom: 12 } },
+                    h("div", { style: { display: "flex", flexWrap: "wrap", gap: 6 } },
+                      ho.guests.map((g, gi) => {
+                        const on = active === g;
+                        const returning = (T.people[g] && (T.people[g].status || "").toLowerCase() === "returning");
+                        return h("button", {
+                          key: gi,
+                          type: "button",
+                          "aria-expanded": on,
+                          onClick: () => setActive(on ? null : g),
+                          style: {
+                            display: "inline-flex", alignItems: "center", gap: 6,
+                            background: on ? a.ink : a.soft, color: on ? "#fff" : a.ink,
+                            fontFamily: "inherit", fontSize: 12.5, fontWeight: returning ? 700 : 400, lineHeight: 1,
+                            padding: "7px 12px", borderRadius: 999, border: "none", cursor: "pointer",
+                            transition: "background .15s ease, color .15s ease",
+                          },
+                        },
+                          g,
+                          h(Icon, { name: on ? "chevron-up" : "chevron-down", size: 13, color: on ? "#fff" : a.ink, stroke: 2.4 })
+                        );
+                      })
+                    ),
+                    (active && ho.guests.indexOf(active) !== -1 && T.people[active])
+                      ? h(PersonCard, { name: active, info: T.people[active], accent: a, onClose: () => setActive(null) })
+                      : null
+                  )
+                : null,
+              ho.driveTime
+                ? h("div", { style: { display: "flex", gap: 8, alignItems: "flex-start", background: "#EEE7FA", borderRadius: 10, padding: "9px 11px", marginBottom: 10 } },
+                    h(Icon, { name: "car", size: 16, color: "#6E4BC4", stroke: 2.2, style: { flexShrink: 0, marginTop: 1 } }),
+                    h("span", { style: { fontSize: 12.5, fontWeight: 600, lineHeight: 1.4, color: "#4A327F" } }, ho.driveTime)
+                  )
+                : null,
+              h("div", { style: { display: "flex", flexWrap: "wrap", alignItems: "center", gap: 18 } },
+                h(MapLink, { url: ho.mapUrl, accent: theme.mapInk, compact: true }, "Open in Maps"),
+                ho.airbnbUrl
+                  ? h("a", {
+                      href: ho.airbnbUrl, target: "_blank", rel: "noopener noreferrer",
+                      style: {
+                        display: "inline-flex", alignItems: "center", gap: 6,
+                        color: theme.mapInk, fontWeight: 600, fontSize: 13,
+                        textDecoration: "none", borderBottom: "2px solid transparent",
+                        paddingBottom: 1,
+                      },
+                      onMouseEnter: (e) => { e.currentTarget.style.borderColor = theme.mapInk; },
+                      onMouseLeave: (e) => { e.currentTarget.style.borderColor = "transparent"; },
+                    },
+                    h(Icon, { name: "bed", size: 15, color: theme.mapInk, stroke: 2.2 }),
+                    "View listing"
+                  )
+                  : null
+              )
+            )
+          ), { key: ho.n })
+        )
+      ),
+      h("div", { style: { marginTop: 12 } }, h(Callout, { icon: "bed", tone: theme.accent }, T.housesNote))
+    );
+  }
+
+  /* =================  TRANSPORTATION  ================= */
+  function Transport({ theme }) {
+    const a = ACCENTS[theme.accent];
+    const tr = T.transportation;
+    return h(F, null,
+      h("p", { style: { margin: "0 0 14px", fontSize: 14, lineHeight: 1.55, color: "var(--inv-slate)" } }, tr.summary),
+      card(
+        h(F, null,
+          h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: "#6E4BC4", marginBottom: 4 } }, "Meet & load"),
+          h("div", { style: { fontSize: 16, fontWeight: 800, color: "var(--inv-navy)", marginBottom: 2 } }, tr.meetTime),
+          h("div", { style: { fontSize: 14, fontWeight: 600, color: "var(--inv-ink)" } }, tr.meetPlace),
+          h("div", { style: { fontSize: 13, color: "var(--inv-slate)", margin: "2px 0 10px" } }, tr.meetAddr),
+          h(MapLink, { url: tr.meetMapUrl, accent: "#6E4BC4", compact: true }, "Open in Maps")
+        ),
+        { background: "#EEE7FA", boxShadow: "none" }
+      ),
+      h("ul", { style: { listStyle: "none", padding: 0, margin: "14px 0 0", display: "flex", flexDirection: "column", gap: 10 } },
+        tr.points.map((p, i) =>
+          h("li", { key: i, style: { display: "flex", gap: 10, fontSize: 13.5, lineHeight: 1.45, color: "var(--inv-ink)" } },
+            h(Icon, { name: "car", size: 17, color: a.ink, stroke: 2, style: { flexShrink: 0, marginTop: 1 } }),
+            h("span", null, p)
+          )
+        )
+      ),
+      tr.driverCall
+        ? h("div", {
+            style: {
+              display: "flex", gap: 11, alignItems: "flex-start", marginTop: 14,
+              background: "#FDEAE5", border: "1.5px solid #F6B7AA", borderRadius: 14, padding: "13px 15px",
+            },
+          },
+            h(Icon, { name: "car", size: 19, color: "#C42E14", stroke: 2.2, style: { flexShrink: 0, marginTop: 1 } }),
+            h("div", { style: { fontSize: 13.5, lineHeight: 1.5, color: "#8E2410", fontWeight: 600 } }, tr.driverCall)
+          )
+        : null
+    );
+  }
+
+  /* =================  MEALS & STIPEND  ================= */
+  function Meals({ theme }) {
+    const a = ACCENTS[theme.accent];
+    const s = T.stipend;
+    return h(F, null,
+      h("div", {
+        style: {
+          display: "flex", alignItems: "center", gap: 16, background: "var(--inv-navy)",
+          borderRadius: 16, padding: "18px 20px", marginBottom: 14,
+        },
+      },
+        h("div", { style: { fontFamily: "var(--font-display)", fontSize: 52, color: "var(--inv-yellow)", lineHeight: .85 } }, s.amount),
+        h("div", null,
+          h("div", { style: { fontSize: 13, fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase", color: "#fff" } }, s.label),
+          h("div", { style: { fontSize: 12.5, lineHeight: 1.4, color: "rgba(255,255,255,.7)", marginTop: 3 } }, s.note)
+        )
+      ),
+      card(
+        h(F, null,
+          h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--success)", marginBottom: 10 } }, s.providedTitle),
+          h("div", { style: { display: "flex", flexDirection: "column", gap: 9 } },
+            s.provided.map((p, i) =>
+              h("div", { key: i, style: { display: "flex", gap: 10, alignItems: "center", fontSize: 14, fontWeight: 600, color: "var(--inv-ink)" } },
+                h("span", {
+                  style: { width: 22, height: 22, borderRadius: 7, background: "var(--success)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
+                }, h(Icon, { name: "check", size: 14, color: "#fff", stroke: 3 })),
+                h("span", null, p)
+              )
+            )
+          )
+        )
+      ),
+      h("div", { style: { marginTop: 12 } }, h(Callout, { icon: "wallet", tone: "purple" }, s.coverYourself)),
+      h("div", { style: { marginTop: 12 } }, h(Callout, { icon: "calendar", tone: "purple" }, s.payTiming))
+    );
+  }
+
+  /* =================  NEW STAFF  ================= */
+  function NewStaff({ theme }) {
+    const ns = T.newStaff;
+    return card(
+      h(F, null,
+        h("p", { style: { margin: "0 0 8px", fontSize: 14.5, lineHeight: 1.55, color: "var(--inv-ink)", fontWeight: 500 } }, ns.body),
+        h("p", { style: { margin: "0 0 16px", fontSize: 13, lineHeight: 1.5, color: "var(--inv-slate)" } }, ns.why),
+        h(CTA, { href: ns.formUrl, variant: theme.ctaVariant, icon: "arrow" }, ns.cta)
+      ),
+      { background: ACCENTS[theme.accent].soft, boxShadow: "none" }
+    );
+  }
+
+  /* =================  CONTACT  ================= */
+  function Contact({ theme }) {
+    const c = T.contact;
+    const a = ACCENTS[theme.accent];
+    return h(F, null,
+      h("p", { style: { margin: "0 0 14px", fontSize: 14, lineHeight: 1.55, color: "var(--inv-slate)" } }, c.note),
+      h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 } },
+        c.people.map((p, pi) =>
+          h("div", { key: pi },
+            card(
+              h(F, null,
+                h("div", { style: { fontSize: 16, fontWeight: 800, color: "var(--inv-navy)", lineHeight: 1.15 } }, p.name),
+                h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".05em", textTransform: "uppercase", color: a.ink, marginBottom: 14 } }, p.role),
+                h("div", { style: { display: "flex", flexDirection: "column", gap: 10 } },
+                  h("a", { href: "mailto:" + p.email, style: { display: "flex", alignItems: "center", gap: 9, color: "var(--inv-ink)", textDecoration: "none", fontSize: 12.5, fontWeight: 600, minWidth: 0, overflowWrap: "anywhere" } },
+                    h("span", { style: { width: 30, height: 30, borderRadius: 9, background: a.soft, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, h(Icon, { name: "mail", size: 16, color: a.ink, stroke: 2 })),
+                    p.email
+                  ),
+                  h("a", { href: p.phoneHref, style: { display: "flex", alignItems: "center", gap: 9, color: "var(--inv-ink)", textDecoration: "none", fontSize: 13, fontWeight: 600 } },
+                    h("span", { style: { width: 30, height: 30, borderRadius: 9, background: a.soft, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, h(Icon, { name: "phone", size: 16, color: a.ink, stroke: 2 })),
+                    p.phone
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+
+  /* =================  FUN FACT  ================= */
+  function FunFact({ theme }) {
+    const ff = T.funFact;
+    const yearColors = ["var(--inv-blue)", "var(--inv-orange)", "var(--inv-yellow)"];
+    return h("div", {
+      style: {
+        background: "var(--inv-navy)", borderRadius: 18, padding: "22px 18px 18px",
+        color: "#fff", overflow: "hidden",
+      },
+    },
+      h("div", { style: { fontSize: 11, fontWeight: 800, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--inv-yellow)", marginBottom: 8 } }, ff.eyebrow),
+      h("p", { style: { margin: "0 0 18px", fontSize: 15, lineHeight: 1.5, fontWeight: 600, color: "#fff" } }, ff.lead),
+      h("div", { style: { display: "flex", flexDirection: "column" } },
+        ff.schools.map((s, i) =>
+          h("div", {
+            key: i,
+            style: {
+              display: "flex", gap: 14, alignItems: "flex-start",
+              padding: "16px 0",
+              borderTop: i === 0 ? "none" : "1px solid rgba(255,255,255,.12)",
+            },
+          },
+            h("div", {
+              style: {
+                fontFamily: "var(--font-display)", fontSize: 32, lineHeight: .9,
+                color: yearColors[i], minWidth: 60, flexShrink: 0, paddingTop: 16,
+              },
+            }, s.year),
+            h("div", { style: { flex: 1, minWidth: 0 } },
+              h("div", {
+                style: {
+                  background: "#fff", borderRadius: 12, padding: "16px 14px",
+                  height: 64, display: "flex", alignItems: "center", justifyContent: "center",
+                },
+              },
+                h("img", { src: s.logo, alt: s.name, loading: "lazy", style: { maxHeight: 40, maxWidth: "80%", width: "auto", objectFit: "contain", display: "block" } })
+              ),
+              s.tag ? h("div", { style: { marginTop: 10 } },
+                h("span", {
+                  style: {
+                    display: "inline-block",
+                    fontSize: 10, fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase",
+                    color: s.us ? "var(--inv-navy)" : "#fff",
+                    background: s.us ? "var(--inv-yellow)" : "rgba(255,255,255,.16)",
+                    padding: "4px 9px", borderRadius: 999, whiteSpace: "nowrap",
+                  },
+                }, s.tag)
+              ) : null,
+              h("div", { style: { fontSize: 13, lineHeight: 1.45, color: "rgba(255,255,255,.78)", marginTop: 8 } },
+                h("span", { style: { fontWeight: 700, color: "#fff" } }, s.city + ", TN"),
+                s.context ? h("span", null, " — " + s.context) : null
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+
+  /* =================  SECTION WRAPPER  ================= */
+  function Section({ theme, icon, label, n, children, first }) {
+    return h("section", { style: { marginTop: first ? 0 : 30 } },
+      h(SectionHead, { theme, icon, label, n }),
+      children
+    );
+  }
+
+  /* =================  ROOT  ================= */
+  function TravelGuide({ themeKey = "banded" }) {
+    const theme = THEMES[themeKey];
+    const a = ACCENTS[theme.accent];
+    return h("div", {
+      className: "inv-root",
+      style: { background: theme.bg, minHeight: "100%", color: "var(--inv-ink)", paddingBottom: 60 },
+    },
+      h(Hero, { theme }),
+      h("div", { style: { padding: "0 18px", marginTop: theme.header === "minimal" ? 22 : -14, position: "relative" } },
+        // countdown
+        h("div", { style: { marginBottom: 22 } },
+          h(Countdown, { targetISO: T.countdownTargetISO, label: T.countdownLabel, variant: theme.countdown })
+        ),
+        h(QuickFacts, { theme }),
+
+        h(Section, { theme, icon: "calendar", label: "Itinerary", n: "01" },
+          h(Timeline, { theme }),
+          h("div", { style: { marginTop: 16 } }, h(Callout, { icon: "clock", tone: theme.accent }, T.timeZoneTip))
+        ),
+        h(Section, { theme, icon: "bed", label: "Where you'll stay", n: "02" }, h(Houses, { theme })),
+        h(Section, { theme, icon: "car", label: "Getting there", n: "03" }, h(Transport, { theme })),
+        h(Section, { theme, icon: "utensils", label: "Meals & stipend", n: "04" }, h(Meals, { theme })),
+        h(Section, { theme, icon: "check", label: "New staff", n: "05" }, h(NewStaff, { theme })),
+        h(Section, { theme, icon: "bag", label: "What to bring", n: "06" },
+          h(Checklist, { items: T.bring, accent: a.solid, storeKey: "incs-chatt-bring-" + themeKey })
+        ),
+        h(Section, { theme, icon: "mail", label: "Questions", n: "07" }, h(Contact, { theme })),
+
+        h("div", { style: { marginTop: 30 } }, h(FunFact, { theme })),
+
+        // closing
+        h("div", {
+          style: {
+            marginTop: 30, paddingTop: 22, borderTop: "1px solid var(--inv-mist)",
+            fontSize: 13.5, lineHeight: 1.6, color: "var(--inv-slate)", textAlign: "center", fontStyle: "italic",
+          },
+        }, T.closing),
+        h("img", {
+          src: "INCS-Shield.png", alt: "",
+          style: { width: 44, opacity: .5, display: "block", margin: "18px auto 0" },
+        })
+      )
+    );
+  }
+
+  window.TravelGuide = TravelGuide;
+})();
+
+
+(function () {
+  const h = React.createElement;
+  const TravelGuide = window.TravelGuide;
+  function App() {
+    return h("div", { className: "app" },
+      h("div", { className: "stage" },
+        h("div", { className: "phone" }, h(TravelGuide, { themeKey: "banded" }))
+      )
+    );
+  }
+  const el = document.getElementById("root");
+  if (!window.__guideRoot) window.__guideRoot = ReactDOM.createRoot(el);
+  window.__guideRoot.render(h(App));
+})();
+
+</script>
+</body>
+</html>
