@@ -282,11 +282,9 @@ a.inv-link:hover { border-color:var(--link); }
 </head>
 <body>
 <div id="root"></div>
-
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
 <script type="text/babel">
 /* Chattanooga Travel Guide — trip data extracted from the staff memo.
    Plain JS, attaches to window.TRIP so every Babel script can read it. */
@@ -444,7 +442,7 @@ a.inv-link:hover { border-color:var(--link); }
         mapUrl: maps("542 Alexander Drive, Chattanooga, TN 37415"),
         airbnbUrl: "https://www.airbnb.com/rooms/567932695107453886",
         driveTime: "About a 20-minute drive to MEHP — buffer that into your morning.",
-        guests: ["Damoniece Lowe", "Chantal Bell", "Jesse Lackey", "Melina DeGolyer"],
+        guests: ["Damoniece Lowe", "Chantel Bell", "Jesse Lackey", "Melina DeGolyer"],
         photo: "house2.png",
       },
       {
@@ -456,7 +454,7 @@ a.inv-link:hover { border-color:var(--link); }
         mapUrl: maps("312 Delmont Street, Chattanooga, TN 37405"),
         airbnbUrl: "https://www.airbnb.com/rooms/32035691",
         driveTime: "About a 15-minute drive to MEHP — buffer that into your morning.",
-        guests: ["Julie Tucker", "Presley Poteete", "Jaania Raj", "Clare Hankins"],
+        guests: ["Presley Poteete", "Jaania Raj", "Clare Hankins"],
         photo: "house3.png",
       },
     ],
@@ -468,10 +466,9 @@ a.inv-link:hover { border-color:var(--link); }
       "Audrey Richter": { role: "Assistant Guide · Lower El", status: "New" },
       "Mary Berger": { role: "Assistant Guide · Lower El", status: "New" },
       "Damoniece Lowe": { role: "Assistant Head of Schools · Primary", status: "Returning" },
-      "Chantal Bell": { role: "Paraprofessional · Lower El", status: "Returning" },
+      "Chantel Bell": { role: "Paraprofessional · Lower El", status: "Returning" },
       "Jesse Lackey": { role: "Elective Guide · PE", status: "New" },
       "Melina DeGolyer": { role: "Assistant Guide · Lower El", status: "New" },
-      "Julie Tucker": { role: "Elective Guide · Art", status: "Returning" },
       "Presley Poteete": { role: "Paraprofessional · Primary", status: "New" },
       "Jaania Raj": { role: "Assistant Guide · Primary", status: "New" },
       "Clare Hankins": { role: "Special Education Guide", status: "New" },
@@ -493,23 +490,33 @@ a.inv-link:hover { border-color:var(--link); }
 
     stipend: {
       amount: "$120",
-      label: "Travel stipend",
+      label: "Travel per diem",
       note: "Per participant — added to your paycheck or direct deposited, and not taxed.",
       providedTitle: "Invictus provides",
       provided: ["Pizza on arrival — Tuesday, June 23", "Team dinner — Wednesday, June 24"],
       coverYourself:
-        "All other meals and incidental expenses are covered using your travel stipend.",
+        "All other meals and incidental expenses are covered using your travel per diem.",
       payTiming:
-        "Everyone will receive their payment by June 19, as long as your paperwork is completed by the end of this week.",
+        "Your per diem has been processed and should be direct deposited by June 18 — reach out if it doesn't come through.",
+    },
+
+    lunch: {
+      title: "Breakfast & lunch on your own",
+      note: "Breakfast and lunch are on your own — here are a few spots, all within a 10-minute walk of the school site.",
+      spots: [
+        { name: "The Together Café", walk: "10 min walk", url: "https://thetogethercafe.org/", tag: "Breakfast & coffee", logo: "together.png", logoBg: "light" },
+        { name: "The Livingstone Café", walk: "10 min walk", url: "https://www.thelivingstonecafe.org/", tag: "Breakfast & coffee", logo: "livingstone.png", logoBg: "navy" },
+        { name: "Wally's Restaurant", walk: "10 min walk", url: "https://www.wallysrest.com/menu", logo: "wallys.png", logoBg: "navy" },
+        { name: "Scottie B's", walk: "10 min walk", url: "https://scottiebs.com/", logo: "scottiebs.png", logoBg: "white" },
+        { name: "White Duck Taco Shop", walk: "10 min walk", url: "https://whiteducktacoshop.com/", logo: "whiteduck.png", logoBg: "black" },
+        { name: "Taqueria La Antigua Guatemala", walk: "10 min walk", url: maps("Taqueria La Antigua Guatemala, Chattanooga, TN"), logo: "taqueria.png", logoBg: "photo" },
+      ],
     },
 
     newStaff: {
       title: "New staff members",
-      body:
-        "If you're an incoming staff member, go ahead and complete your onboarding paperwork early using the form below.",
-      why: "You're not officially employed until July, but completing this now lets us get your travel stipend into your account and gets your onboarding started — so you're good to go on day one.",
-      formUrl: "https://form.jotform.com/261268160099057",
-      cta: "Complete onboarding form",
+      body: "All onboarding paperwork is complete — thank you for staying on top of this!",
+      why: "You're all set. We'll have your travel per diem processed and your onboarding underway so you're good to go on day one.",
     },
 
     bring: [
@@ -529,6 +536,7 @@ a.inv-link:hover { border-color:var(--link); }
           email: "aholdren@invictus-nash.org",
           phone: "615-507-8291",
           phoneHref: "tel:+16155078291",
+          photo: "adam-holdren.png",
         },
         {
           name: "Jonathan Salls",
@@ -536,6 +544,7 @@ a.inv-link:hover { border-color:var(--link); }
           email: "jsalls@invictus-nash.org",
           phone: "731-693-1187",
           phoneHref: "tel:+17316931187",
+          photo: "jonathan-salls.png",
         },
       ],
     },
@@ -605,6 +614,7 @@ a.inv-link:hover { border-color:var(--link); }
     "chevron-down": ["M6 9l6 6 6-6"],
     "chevron-up": ["M6 15l6-6 6 6"],
     user: ["M4 20c0-4 4-6 8-6s8 2 8 6", "circle:12,8,4"],
+    walk: ["circle:13,4,1.5", "M11 21l1-6-3-2 1-5 3 2 2 2", "M9 9l-1 4"],
   };
 
   function Icon({ name, size = 20, color = "currentColor", stroke = 2, style }) {
@@ -1448,7 +1458,48 @@ a.inv-link:hover { border-color:var(--link); }
         )
       ),
       h("div", { style: { marginTop: 12 } }, h(Callout, { icon: "wallet", tone: "purple" }, s.coverYourself)),
-      h("div", { style: { marginTop: 12 } }, h(Callout, { icon: "calendar", tone: "purple" }, s.payTiming))
+      h("div", { style: { marginTop: 12 } }, h(Callout, { icon: "calendar", tone: "purple" }, s.payTiming)),
+      T.lunch
+        ? h("div", { style: { marginTop: 16 } },
+            card(
+              h(F, null,
+                h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", color: "#fff", marginBottom: 6 } }, T.lunch.title),
+                h("p", { style: { margin: "0 0 12px", fontSize: 13, lineHeight: 1.5, color: "rgba(255,255,255,.85)" } }, T.lunch.note),
+                h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 9 } },
+                  T.lunch.spots.map((sp, i) => {
+                    const bg = sp.logoBg === "navy" ? "var(--inv-navy)" : sp.logoBg === "black" ? "#000" : sp.logoBg === "light" ? "#f1f0ee" : "#fff";
+                    const isPhoto = sp.logoBg === "photo";
+                    return h("a", {
+                      key: i, href: sp.url, target: "_blank", rel: "noopener noreferrer",
+                      style: {
+                        display: "flex", flexDirection: "column", overflow: "hidden",
+                        borderRadius: 12, textDecoration: "none", background: "#fff",
+                        boxShadow: "0 2px 6px rgba(3,43,67,.18)",
+                      },
+                    },
+                      h("span", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: 58, background: isPhoto ? "#000" : bg, borderBottom: "1px solid var(--inv-mist)" } },
+                        h("img", { src: sp.logo, alt: sp.name, loading: "lazy", style: isPhoto ? { width: "100%", height: "100%", objectFit: "cover", display: "block" } : { maxHeight: 40, maxWidth: "82%", objectFit: "contain", display: "block" } })
+                      ),
+                      h("span", { style: { padding: "8px 10px 10px" } },
+                        h("span", { style: { display: "block", fontSize: 12.5, fontWeight: 700, color: "var(--inv-ink)", lineHeight: 1.2 } }, sp.name),
+                        h("span", { style: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 6, marginTop: 4 } },
+                          h("span", { style: { display: "inline-flex", alignItems: "center", gap: 3, fontSize: 11, fontWeight: 600, color: "var(--inv-orange)" } },
+                            h(Icon, { name: "walk", size: 11, color: "var(--inv-orange)", stroke: 2.2 }),
+                            sp.walk
+                          ),
+                          sp.tag
+                            ? h("span", { style: { fontSize: 9, fontWeight: 800, letterSpacing: ".03em", textTransform: "uppercase", color: "var(--inv-orange)", background: "var(--inv-orange-100)", padding: "2px 6px", borderRadius: 999, whiteSpace: "nowrap" } }, sp.tag)
+                            : null
+                        )
+                      )
+                    );
+                  })
+                )
+              ),
+              { background: "var(--inv-orange)", boxShadow: "none" }
+            )
+          )
+        : null
     );
   }
 
@@ -1458,8 +1509,8 @@ a.inv-link:hover { border-color:var(--link); }
     return card(
       h(F, null,
         h("p", { style: { margin: "0 0 8px", fontSize: 14.5, lineHeight: 1.55, color: "var(--inv-ink)", fontWeight: 500 } }, ns.body),
-        h("p", { style: { margin: "0 0 16px", fontSize: 13, lineHeight: 1.5, color: "var(--inv-slate)" } }, ns.why),
-        h(CTA, { href: ns.formUrl, variant: theme.ctaVariant, icon: "arrow" }, ns.cta)
+        h("p", { style: { margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--inv-slate)" } }, ns.why),
+        ns.formUrl ? h(CTA, { href: ns.formUrl, variant: theme.ctaVariant, icon: "arrow" }, ns.cta) : null
       ),
       { background: ACCENTS[theme.accent].soft, boxShadow: "none" }
     );
@@ -1476,12 +1527,22 @@ a.inv-link:hover { border-color:var(--link); }
           h("div", { key: pi },
             card(
               h(F, null,
-                h("div", { style: { fontSize: 16, fontWeight: 800, color: "var(--inv-navy)", lineHeight: 1.15 } }, p.name),
-                h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".05em", textTransform: "uppercase", color: a.ink, marginBottom: 14 } }, p.role),
-                h("div", { style: { display: "flex", flexDirection: "column", gap: 10 } },
-                  h("a", { href: "mailto:" + p.email, style: { display: "flex", alignItems: "center", gap: 9, color: "var(--inv-ink)", textDecoration: "none", fontSize: 12.5, fontWeight: 600, minWidth: 0, overflowWrap: "anywhere" } },
-                    h("span", { style: { width: 30, height: 30, borderRadius: 9, background: a.soft, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, h(Icon, { name: "mail", size: 16, color: a.ink, stroke: 2 })),
-                    p.email
+                h("div", { style: { display: "flex", alignItems: "center", gap: 11, marginBottom: 14 } },
+                  p.photo
+                    ? h("img", {
+                        src: p.photo, alt: p.name, loading: "lazy",
+                        style: { width: 52, height: 52, borderRadius: 999, objectFit: "cover", flexShrink: 0, boxShadow: "0 0 0 2px " + a.soft },
+                      })
+                    : null,
+                  h("div", { style: { minWidth: 0 } },
+                    h("div", { style: { fontSize: 16, fontWeight: 800, color: "var(--inv-navy)", lineHeight: 1.15 } }, p.name),
+                    h("div", { style: { fontSize: 11, fontWeight: 700, letterSpacing: ".05em", textTransform: "uppercase", color: a.ink, marginTop: 2 } }, p.role)
+                  )
+                ),
+                h("div", { style: { display: "flex", flexDirection: "column", gap: 9 } },
+                  h("a", { href: "mailto:" + p.email, style: { display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, background: a.ink, color: "#fff", textDecoration: "none", fontSize: 13, fontWeight: 700, padding: "10px 14px", borderRadius: 999 } },
+                    h(Icon, { name: "mail", size: 16, color: "#fff", stroke: 2.2 }),
+                    "Email me"
                   ),
                   h("a", { href: p.phoneHref, style: { display: "flex", alignItems: "center", gap: 9, color: "var(--inv-ink)", textDecoration: "none", fontSize: 13, fontWeight: 600 } },
                     h("span", { style: { width: 30, height: 30, borderRadius: 9, background: a.soft, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 } }, h(Icon, { name: "phone", size: 16, color: a.ink, stroke: 2 })),
@@ -1585,7 +1646,7 @@ a.inv-link:hover { border-color:var(--link); }
         ),
         h(Section, { theme, icon: "bed", label: "Where you'll stay", n: "02" }, h(Houses, { theme })),
         h(Section, { theme, icon: "car", label: "Getting there", n: "03" }, h(Transport, { theme })),
-        h(Section, { theme, icon: "utensils", label: "Meals & stipend", n: "04" }, h(Meals, { theme })),
+        h(Section, { theme, icon: "utensils", label: "Meals & per diem", n: "04" }, h(Meals, { theme })),
         h(Section, { theme, icon: "check", label: "New staff", n: "05" }, h(NewStaff, { theme })),
         h(Section, { theme, icon: "bag", label: "What to bring", n: "06" },
           h(Checklist, { items: T.bring, accent: a.solid, storeKey: "incs-chatt-bring-" + themeKey })
@@ -1617,17 +1678,12 @@ a.inv-link:hover { border-color:var(--link); }
   const h = React.createElement;
   const TravelGuide = window.TravelGuide;
   function App() {
-    return h("div", { className: "app" },
-      h("div", { className: "stage" },
-        h("div", { className: "phone" }, h(TravelGuide, { themeKey: "banded" }))
-      )
-    );
+    return h("div", { className: "app" }, h("div", { className: "stage" }, h("div", { className: "phone" }, h(TravelGuide, { themeKey: "banded" }))));
   }
   const el = document.getElementById("root");
   if (!window.__guideRoot) window.__guideRoot = ReactDOM.createRoot(el);
   window.__guideRoot.render(h(App));
 })();
-
 </script>
 </body>
 </html>
